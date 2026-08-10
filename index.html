@@ -22,7 +22,9 @@
   --shadow:0 20px 60px rgba(0,0,0,.35);
 }
 
-*{box-sizing:border-box}
+*{
+  box-sizing:border-box
+}
 
 body{
   margin:0;
@@ -35,8 +37,13 @@ body{
   color:var(--text);
 }
 
-button,input,select{font:inherit}
-button{cursor:pointer}
+button,input,select{
+  font:inherit
+}
+
+button{
+  cursor:pointer
+}
 
 .app{
   width:min(1050px,calc(100% - 28px));
@@ -69,7 +76,9 @@ header{
   box-shadow:0 10px 30px rgba(139,92,246,.25)
 }
 
-h1,h2,h3,p{margin-top:0}
+h1,h2,h3,p{
+  margin-top:0
+}
 
 h1{
   font-size:28px;
@@ -91,8 +100,14 @@ h1{
 }
 
 @keyframes fade{
-  from{opacity:0;transform:translateY(6px)}
-  to{opacity:1;transform:none}
+  from{
+    opacity:0;
+    transform:translateY(6px)
+  }
+  to{
+    opacity:1;
+    transform:none
+  }
 }
 
 .card{
@@ -189,9 +204,17 @@ h1{
 }
 
 @media(max-width:720px){
-  .grid{grid-template-columns:1fr}
-  .hero{padding:25px}
-  .hero .big{font-size:48px}
+  .grid{
+    grid-template-columns:1fr
+  }
+
+  .hero{
+    padding:25px
+  }
+
+  .hero .big{
+    font-size:48px
+  }
 }
 
 .section-title{
@@ -227,7 +250,9 @@ input:focus{
   gap:9px
 }
 
-.addrow input{flex:1}
+.addrow input{
+  flex:1
+}
 
 .players{
   display:flex;
@@ -392,6 +417,45 @@ input:focus{
   min-width:190px
 }
 
+.mafia-teammates{
+  margin-top:18px;
+  padding:16px;
+  border-radius:16px;
+  background:rgba(239,68,68,.08);
+  border:1px solid rgba(239,68,68,.25);
+  width:min(520px,100%)
+}
+
+.mafia-teammates-title{
+  color:#fca5a5;
+  font-weight:900;
+  margin-bottom:10px
+}
+
+.mafia-teammate-list{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:8px
+}
+
+.mafia-teammate{
+  padding:7px 11px;
+  border-radius:10px;
+  background:#202532;
+  border:1px solid #343b4a
+}
+
+.mayor-revealed-badge{
+  margin-top:12px;
+  padding:9px 14px;
+  border-radius:99px;
+  background:rgba(245,158,11,.12);
+  border:1px solid rgba(245,158,11,.3);
+  color:#fde68a;
+  font-weight:800
+}
+
 .summary-grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
@@ -474,8 +538,13 @@ input:focus{
   border:1px solid var(--border)
 }
 
-.ok{color:#86efac}
-.no{color:#fca5a5}
+.ok{
+  color:#86efac
+}
+
+.no{
+  color:#fca5a5
+}
 
 .small{
   font-size:12px;
@@ -581,6 +650,11 @@ input:focus{
   border-radius:99px
 }
 
+.mayor-vote-label{
+  color:#fde68a;
+  font-weight:800
+}
+
 .win-card{
   text-align:center;
   border-color:rgba(239,68,68,.35);
@@ -602,24 +676,37 @@ input:focus{
 <div class="app">
 
 <header>
+
   <div class="brand">
+
     <div class="logo">🎭</div>
+
     <div>
       <h1>Mafia</h1>
-      <div class="subtitle">لعبة المافيا — توزيع سري وعشوائي</div>
+      <div class="subtitle">
+        لعبة المافيا — توزيع سري وعشوائي
+      </div>
     </div>
+
   </div>
 
-  <button class="btn secondary" id="homeBtn" onclick="goHome()">
+  <button
+    class="btn secondary"
+    id="homeBtn"
+    onclick="goHome()"
+  >
     الرئيسية
   </button>
+
 </header>
 
 
 <!-- HOME -->
+
 <section id="home" class="screen active">
 
   <div class="card hero">
+
     <div class="big">🌙</div>
 
     <h2>جاهزين للمافيا؟</h2>
@@ -629,15 +716,20 @@ input:focus{
       كل لاعب سيعرف دوره فقط، والتوزيع يتم عشوائيًا بالكامل.
     </p>
 
-    <button class="btn" onclick="showSetup()">
+    <button
+      class="btn"
+      onclick="showSetup()"
+    >
       ابدأ لعبة جديدة
     </button>
+
   </div>
 
 </section>
 
 
 <!-- SETUP -->
+
 <section id="setup" class="screen">
 
   <div class="grid">
@@ -645,23 +737,39 @@ input:focus{
     <div class="card">
 
       <div class="section-title">
+
         <h2>👥 اللاعبين</h2>
-        <span class="small" id="playerCount">0 لاعب</span>
+
+        <span
+          class="small"
+          id="playerCount"
+        >
+          0 لاعب
+        </span>
+
       </div>
 
       <div class="addrow">
+
         <input
           id="playerInput"
           placeholder="اكتب اسم اللاعب..."
           maxlength="30"
         >
 
-        <button class="btn" onclick="addPlayer()">
+        <button
+          class="btn"
+          onclick="addPlayer()"
+        >
           إضافة
         </button>
+
       </div>
 
-      <div id="players" class="players"></div>
+      <div
+        id="players"
+        class="players"
+      ></div>
 
       <div class="note">
         لا يوجد حد أدنى للاعبين هنا، لكن اللعبة لن تبدأ إلا إذا كان
@@ -674,8 +782,13 @@ input:focus{
     <div class="card">
 
       <div class="section-title">
+
         <h2>🎲 الأدوار</h2>
-        <span class="small">التوزيع عشوائي</span>
+
+        <span class="small">
+          التوزيع عشوائي
+        </span>
+
       </div>
 
       <div id="roles"></div>
@@ -689,29 +802,50 @@ input:focus{
   </div>
 
 
-  <div class="card" style="margin-top:16px">
+  <div
+    class="card"
+    style="margin-top:16px"
+  >
 
     <div class="section-title">
+
       <h2>⚙️ إعدادات اللعبة</h2>
+
     </div>
 
-    <label style="display:flex;align-items:center;gap:10px;color:var(--muted)">
+    <label
+      style="
+        display:flex;
+        align-items:center;
+        gap:10px;
+        color:var(--muted)
+      "
+    >
+
       <input
         id="autoNext"
         type="checkbox"
         checked
         style="width:auto"
       >
+
       بعد إخفاء الدور، انتقل تلقائيًا للاعب التالي
+
     </label>
 
     <div class="actions">
 
-      <button class="btn" onclick="startGame()">
+      <button
+        class="btn"
+        onclick="startGame()"
+      >
         🎲 توزيع الأدوار وبدء اللعبة
       </button>
 
-      <button class="btn secondary" onclick="goHome()">
+      <button
+        class="btn secondary"
+        onclick="goHome()"
+      >
         رجوع
       </button>
 
@@ -723,32 +857,50 @@ input:focus{
 
 
 <!-- REVEAL -->
+
 <section id="reveal" class="screen">
 
   <div class="topbar">
 
     <div>
+
       <b>توزيع الأدوار</b>
-      <div class="small" id="turnProgressText"></div>
+
+      <div
+        class="small"
+        id="turnProgressText"
+      ></div>
+
     </div>
 
-    <button class="btn danger" onclick="confirmRestart()">
+    <button
+      class="btn danger"
+      onclick="confirmRestart()"
+    >
       إلغاء اللعبة
     </button>
 
   </div>
 
   <div class="progress">
+
     <span id="progressBar"></span>
+
   </div>
 
   <div class="card turn-card">
 
-    <div class="turn-number" id="turnNumber"></div>
+    <div
+      class="turn-number"
+      id="turnNumber"
+    ></div>
 
     <div class="device">📱</div>
 
-    <h2 class="turn-name" id="currentName"></h2>
+    <h2
+      class="turn-name"
+      id="currentName"
+    ></h2>
 
     <p class="secret-desc">
       خذ الجهاز وحدك، وتأكد أن باقي اللاعبين لا يرون الشاشة.
@@ -762,13 +914,32 @@ input:focus{
       👁️ إظهار دوري
     </button>
 
-    <div id="roleArea" class="hidden">
+    <div
+      id="roleArea"
+      class="hidden"
+    >
 
-      <div class="role-secret" id="roleSecret"></div>
+      <div
+        class="role-secret"
+        id="roleSecret"
+      ></div>
 
-      <div class="role-badge" id="roleBadge"></div>
+      <div
+        class="role-badge"
+        id="roleBadge"
+      ></div>
 
-      <p class="secret-desc" id="roleDesc"></p>
+      <p
+        class="secret-desc"
+        id="roleDesc"
+      ></p>
+
+      <!-- يظهر فقط للمافيا -->
+
+      <div
+        id="mafiaTeammates"
+        class="mafia-teammates hidden"
+      ></div>
 
       <div class="actions" style="justify-content:center">
 
@@ -790,38 +961,72 @@ input:focus{
 
 
 <!-- NIGHT -->
+
 <section id="night" class="screen">
 
   <div class="topbar">
 
     <div>
-      <b id="nightTitle">🌙 ليلة جديدة</b>
-      <div class="small" id="nightStepText"></div>
+
+      <b id="nightTitle">
+        🌙 ليلة جديدة
+      </b>
+
+      <div
+        class="small"
+        id="nightStepText"
+      ></div>
+
     </div>
 
-    <button class="btn danger" onclick="confirmRestart()">
+    <button
+      class="btn danger"
+      onclick="confirmRestart()"
+    >
       إلغاء اللعبة
     </button>
 
   </div>
 
   <div class="progress">
+
     <span id="nightProgress"></span>
+
   </div>
 
-  <div class="card" id="nightCard">
+  <div
+    class="card"
+    id="nightCard"
+  >
 
-    <div class="turn-card" style="min-height:330px">
+    <div
+      class="turn-card"
+      style="min-height:330px"
+    >
 
-      <div class="device" id="nightIcon">🔪</div>
+      <div
+        class="device"
+        id="nightIcon"
+      >
+        🔪
+      </div>
 
-      <h2 class="turn-name" id="nightRoleTitle">
+      <h2
+        class="turn-name"
+        id="nightRoleTitle"
+      >
         المافيا
       </h2>
 
-      <p class="secret-desc" id="nightInstruction"></p>
+      <p
+        class="secret-desc"
+        id="nightInstruction"
+      ></p>
 
-      <div id="nightContent" style="width:min(620px,100%)"></div>
+      <div
+        id="nightContent"
+        style="width:min(620px,100%)"
+      ></div>
 
     </div>
 
@@ -829,7 +1034,10 @@ input:focus{
 
   <div class="actions">
 
-    <button class="btn secondary" onclick="show('end')">
+    <button
+      class="btn secondary"
+      onclick="show('end')"
+    >
       رجوع
     </button>
 
@@ -839,18 +1047,25 @@ input:focus{
 
 
 <!-- VOTING -->
+
 <section id="eliminate" class="screen">
 
   <div class="topbar">
 
     <div>
+
       <b>☀️ مرحلة التصويت</b>
+
       <div class="small">
         كل لاعب يختار لاعبًا واحدًا للتصويت عليه
       </div>
+
     </div>
 
-    <button class="btn danger" onclick="confirmRestart()">
+    <button
+      class="btn danger"
+      onclick="confirmRestart()"
+    >
       إلغاء اللعبة
     </button>
 
@@ -863,24 +1078,38 @@ input:focus{
 
       <h2>🗳️ التصويت</h2>
 
-      <span class="small" id="aliveCount"></span>
+      <span
+        class="small"
+        id="aliveCount"
+      ></span>
 
     </div>
 
-    <p class="note" style="margin-top:0">
+    <p
+      class="note"
+      style="margin-top:0"
+    >
       اضغط على اسم اللاعب لتحديد صوته.
       لا يمكن للاعب التصويت لنفسه.
     </p>
 
-    <div id="voterList" class="list"></div>
+    <div
+      id="voterList"
+      class="list"
+    ></div>
 
 
-    <div id="voteChoice" class="vote-choice hidden"></div>
+    <div
+      id="voteChoice"
+      class="vote-choice hidden"
+    ></div>
 
 
     <div class="skip-row">
+
       ⏭️ عدد أصوات التخطي:
       <b id="skipVotesCount">0</b>
+
     </div>
 
 
@@ -924,6 +1153,7 @@ input:focus{
 
 
 <!-- END -->
+
 <section id="end" class="screen">
 
   <div class="card hero">
@@ -936,28 +1166,49 @@ input:focus{
       الآن كل لاعب يعرف دوره. الراوي يمكنه بدء أول ليلة.
     </p>
 
-    <div class="summary-grid" id="summary"></div>
+    <div
+      class="summary-grid"
+      id="summary"
+    ></div>
 
 
-    <div class="actions" style="justify-content:center">
+    <div
+      class="actions"
+      style="justify-content:center"
+    >
 
-      <button class="btn" onclick="startNight()">
+      <button
+        class="btn"
+        onclick="startNight()"
+      >
         🌙 ليلة جديدة
       </button>
 
-      <button class="btn" onclick="startEliminationRound()">
+      <button
+        class="btn"
+        onclick="startEliminationRound()"
+      >
         🗳️ مرحلة التصويت / إقصاء لاعب
       </button>
 
-      <button class="btn" onclick="showMayorChecker()">
-        🔎 فحص العمدة
+      <button
+        class="btn gold"
+        onclick="showMayorChecker()"
+      >
+        🔎 كشف العمدة
       </button>
 
-      <button class="btn secondary" onclick="showAssignments()">
+      <button
+        class="btn secondary"
+        onclick="showAssignments()"
+      >
         📋 عرض التوزيع للراوي
       </button>
 
-      <button class="btn secondary" onclick="newGame()">
+      <button
+        class="btn secondary"
+        onclick="newGame()"
+      >
         لعبة جديدة
       </button>
 
@@ -976,13 +1227,19 @@ input:focus{
 
       <h2>توزيع الأدوار — للراوي فقط</h2>
 
-      <button class="btn secondary" onclick="hideAssignments()">
+      <button
+        class="btn secondary"
+        onclick="hideAssignments()"
+      >
         إخفاء
       </button>
 
     </div>
 
-    <div class="list" id="assignmentList"></div>
+    <div
+      class="list"
+      id="assignmentList"
+    ></div>
 
   </div>
 
@@ -990,6 +1247,7 @@ input:focus{
 
 
 <!-- WIN -->
+
 <section id="win" class="screen">
 
   <div class="card hero win-card">
@@ -1008,9 +1266,15 @@ input:focus{
       id="winSummary"
     ></div>
 
-    <div class="actions" style="justify-content:center">
+    <div
+      class="actions"
+      style="justify-content:center"
+    >
 
-      <button class="btn secondary" onclick="newGame()">
+      <button
+        class="btn secondary"
+        onclick="newGame()"
+      >
         لعبة جديدة
       </button>
 
@@ -1022,13 +1286,17 @@ input:focus{
 
 
 <!-- MAYOR MODAL -->
-<div class="modal" id="mayorModal">
+
+<div
+  class="modal"
+  id="mayorModal"
+>
 
   <div class="modal-box">
 
     <div class="section-title">
 
-      <h2>🔎 هل اللاعب عمدة الصالحين؟</h2>
+      <h2>🔎 كشف العمدة</h2>
 
       <button
         class="btn secondary"
@@ -1040,7 +1308,7 @@ input:focus{
     </div>
 
     <p class="small">
-      اختر اسم اللاعب. هذه الأداة مخصصة للراوي.
+      اختر اسم اللاعب الذي تريد كشفه. هذه الأداة مخصصة للراوي.
     </p>
 
     <select
@@ -1061,7 +1329,7 @@ input:focus{
       style="width:100%;margin-top:12px"
       onclick="checkMayor()"
     >
-      كشف النتيجة
+      كشف العمدة
     </button>
 
     <div
@@ -1102,7 +1370,7 @@ const roleDefs = {
   mayor:{
     name:"عمدة الصالحين",
     icon:"⚖️",
-    desc:"أنت عمدة الصالحين. أنت مواطن مؤكد، وصوتك يساوي 3 أصوات في التصويت.",
+    desc:"أنت عمدة الصالحين. أنت مواطن مؤكد. قبل كشفك صوتك عادي، وبعد كشفك يساوي 3 أصوات.",
     min:0
   }
 
@@ -1128,14 +1396,27 @@ let eliminated=[];
 
 
 /*
+  هل تم كشف العمدة بالفعل؟
+
+  قبل الكشف:
+  صوت العمدة = 1
+
+  بعد الكشف:
+  صوت العمدة = 3
+*/
+let mayorRevealed=false;
+
+
+/*
   حالة الليل:
 
   0 = المافيا
   1 = الدكتور
   2 = المحقق
-  3 = العمدة (متخطى)
+  3 = العمدة
   4 = نتيجة الليل
 */
+
 let nightState={
   step:0,
   started:false,
@@ -1148,6 +1429,7 @@ let nightState={
 /*
   حالة التصويت
 */
+
 let voteState={
   voters:[],
   votes:{},
@@ -1176,8 +1458,11 @@ function show(id){
 
 
 function showSetup(){
+
   show('setup');
+
   renderRoles();
+
   renderPlayers();
 }
 
@@ -1205,6 +1490,8 @@ function newGame(){
   turn=0;
 
   revealed=false;
+
+  mayorRevealed=false;
 
   nightState={
     step:0,
@@ -1243,7 +1530,9 @@ function addPlayer(){
       p=>p.toLowerCase()===name.toLowerCase()
     )
   ){
+
     alert('الاسم موجود بالفعل.');
+
     return;
   }
 
@@ -1281,8 +1570,12 @@ function renderPlayers(){
   qs('players').innerHTML =
     players.map(
       (p,i)=>`
+
         <div class="player-chip">
-          <span>${escapeHtml(p)}</span>
+
+          <span>
+            ${escapeHtml(p)}
+          </span>
 
           <button
             class="remove"
@@ -1290,7 +1583,9 @@ function renderPlayers(){
           >
             ×
           </button>
+
         </div>
+
       `
     ).join('')
 
@@ -1329,7 +1624,9 @@ function renderRoles(){
 
           <div class="counter">
 
-            <button onclick="changeCount('${key}',-1)">
+            <button
+              onclick="changeCount('${key}',-1)"
+            >
               −
             </button>
 
@@ -1340,7 +1637,9 @@ function renderRoles(){
               ${counts[key]}
             </span>
 
-            <button onclick="changeCount('${key}',1)">
+            <button
+              onclick="changeCount('${key}',1)"
+            >
               +
             </button>
 
@@ -1365,6 +1664,14 @@ function changeCount(key,d){
     counts[key];
 }
 
+
+/*
+  توزيع الأدوار يتم هنا بالكامل.
+
+  مهم:
+  المافيا ورفاقهم يتم تحديدهم قبل أن يبدأ
+  أي لاعب في رؤية دوره.
+*/
 
 function startGame(){
 
@@ -1394,9 +1701,11 @@ function startGame(){
 
   Object.entries(counts).forEach(
     ([k,n])=>{
+
       for(let i=0;i<n;i++){
         roles.push(k);
       }
+
     }
   );
 
@@ -1410,6 +1719,11 @@ function startGame(){
   }
 
 
+  /*
+    التوزيع العشوائي يتم مرة واحدة فقط
+    قبل أول لاعب.
+  */
+
   shuffle(roles);
 
 
@@ -1422,11 +1736,22 @@ function startGame(){
     );
 
 
+  /*
+    العمدة لم يتم كشفه بعد.
+  */
+
+  mayorRevealed=false;
+
   turn=0;
 
   revealed=false;
 
   eliminated=[];
+
+
+  /*
+    تجهيز شاشة اللاعب الأول
+  */
 
   prepareTurn();
 
@@ -1477,6 +1802,10 @@ function prepareTurn(){
   qs('revealBtn').classList.remove('hidden');
 
   qs('roleArea').classList.add('hidden');
+
+  qs('mafiaTeammates').classList.add('hidden');
+
+  qs('mafiaTeammates').innerHTML='';
 }
 
 
@@ -1506,6 +1835,67 @@ function revealRole(){
 
   qs('roleDesc').textContent =
     r.desc;
+
+
+  /*
+    إذا كان اللاعب مافيا:
+    اعرض له رفاق المافيا فقط.
+  */
+
+  if(p.role==='mafia'){
+
+    const teammates =
+      assignments.filter(
+        x=>
+          x.role==='mafia'
+          &&
+          x.name!==p.name
+      );
+
+
+    const box=qs('mafiaTeammates');
+
+    box.classList.remove('hidden');
+
+
+    if(teammates.length){
+
+      box.innerHTML=`
+
+        <div class="mafia-teammates-title">
+          🔪 رفاقك في المافيا
+        </div>
+
+        <div class="mafia-teammate-list">
+
+          ${teammates.map(
+            x=>`
+              <span class="mafia-teammate">
+                ${escapeHtml(x.name)}
+              </span>
+            `
+          ).join('')}
+
+        </div>
+
+      `;
+
+    }else{
+
+      box.innerHTML=`
+
+        <div class="mafia-teammates-title">
+          🔪 أنت المافيا الوحيدة
+        </div>
+
+        <div class="small">
+          لا يوجد أفراد مافيا آخرون.
+        </div>
+
+      `;
+    }
+
+  }
 
 
   qs('revealBtn').classList.add('hidden');
@@ -1641,6 +2031,8 @@ function populateMayor(){
 
 function showMayorChecker(){
 
+  populateMayor();
+
   qs('mayorModal')
     .classList.add('show');
 
@@ -1655,6 +2047,13 @@ function closeMayor(){
     .classList.remove('show');
 }
 
+
+/*
+  كشف العمدة.
+
+  لا يتم تفعيل قوة العمدة إلا إذا قام
+  الراوي بكشف اللاعب بالفعل.
+*/
 
 function checkMayor(){
 
@@ -1675,26 +2074,75 @@ function checkMayor(){
 
   if(p && p.role==='mayor'){
 
+    /*
+      تفعيل قوة العمدة
+    */
+
+    mayorRevealed=true;
+
+
     box.className='result ok';
 
     box.innerHTML=`
-      ✅ <b>${escapeHtml(name)}</b>
-      هو <b>عمدة الصالحين</b>.
-      <br>
-      <span class="small">
-        مواطن مؤكد — صوته يساوي 3 أصوات.
-      </span>
+
+      ⚖️
+
+      <div
+        style="
+          font-size:27px;
+          font-weight:900;
+          margin:8px
+        "
+      >
+        ${escapeHtml(name)} هو العمدة
+      </div>
+
+      <div style="font-size:17px">
+        تم كشف العمدة بنجاح.
+        <br>
+        من الآن فصاعدًا صوته يساوي
+        <b>3 أصوات</b>.
+      </div>
+
     `;
+
+    /*
+      تحديث قائمة التصويت إن كانت مفتوحة
+    */
+
+    renderVotingIfActive();
 
   }else{
 
     box.className='result no';
 
     box.innerHTML=`
-      ❌ <b>${escapeHtml(name)}</b>
-      ليس عمدة الصالحين.
+
+      ❌
+
+      <div style="font-size:21px;font-weight:800">
+        ${escapeHtml(name)} ليس العمدة.
+      </div>
+
+      <div class="small">
+        لم يتم تفعيل قوة العمدة.
+      </div>
+
     `;
   }
+}
+
+
+/*
+  معرفة ما إذا كان لاعب معين هو العمدة المكشوف.
+*/
+
+function isRevealedMayor(player){
+
+  return (
+    mayorRevealed &&
+    player.role==='mayor'
+  );
 }
 
 
@@ -1721,8 +2169,6 @@ function getCitizensAlive(){
 
 /*
   فحص فوز المافيا
-  حسب الشرط المطلوب:
-  إذا كان عدد المافيا = عدد المواطنين
 */
 
 function checkMafiaWin(){
@@ -1738,7 +2184,6 @@ function checkMafiaWin(){
   ).length;
 
 
-  // فوز المواطنين
   if(mafiaCount === 0){
 
     showCitizenWin();
@@ -1747,7 +2192,6 @@ function checkMafiaWin(){
   }
 
 
-  // فوز المافيا
   if(mafiaCount === citizenCount){
 
     showMafiaWin();
@@ -1759,11 +2203,13 @@ function checkMafiaWin(){
   return false;
 }
 
+
 function showCitizenWin(){
 
   qs('winSummary').innerHTML = assignments.map(
     x => `
       <div class="summary">
+
         <strong>
           ${roleDefs[x.role]?.icon || '👤'}
           ${escapeHtml(x.name)}
@@ -1772,18 +2218,53 @@ function showCitizenWin(){
         <span>
           ${roleDefs[x.role]?.name || 'مواطن'}
         </span>
+
       </div>
     `
   ).join('');
 
 
-  qs('win').querySelector('.big').textContent = '🎉';
+  qs('win').querySelector('.big').textContent =
+    '🎉';
 
   qs('win').querySelector('h2').textContent =
     'المواطنون فازوا!';
 
   qs('win').querySelector('p').textContent =
     'تم إقصاء جميع أفراد المافيا، ولذلك تنتهي اللعبة هنا.';
+
+  show('win');
+}
+
+
+function showMafiaWin(){
+
+  qs('winSummary').innerHTML = assignments.map(
+    x => `
+      <div class="summary">
+
+        <strong>
+          ${roleDefs[x.role]?.icon || '👤'}
+          ${escapeHtml(x.name)}
+        </strong>
+
+        <span>
+          ${roleDefs[x.role]?.name || 'مواطن'}
+        </span>
+
+      </div>
+    `
+  ).join('');
+
+
+  qs('win').querySelector('.big').textContent =
+    '🔪';
+
+  qs('win').querySelector('h2').textContent =
+    'المافيا فازت!';
+
+  qs('win').querySelector('p').textContent =
+    'أصبح عدد المافيا مساويًا لعدد المواطنين، ولذلك تنتهي اللعبة هنا.';
 
   show('win');
 }
@@ -1845,10 +2326,9 @@ function renderNight(){
     1 المافيا
     2 الدكتور
     3 المحقق
-    4 العمدة — متخطى
+    4 العمدة
     5 نتيجة الليل
   */
-
 
   const steps=[
 
@@ -1875,7 +2355,7 @@ function renderNight(){
       icon:'🕵️',
       desc:
         detectives.length
-          ? 'المحقق يستطيع التحقيق مع لاعب حي لمعرفة هل هو مافيا أم لا.'
+          ? 'المحقق يستطيع التحقيق مع لاعب حي لمعرفة هل هو من المافيا أم لا.'
           : 'لا يوجد محقق في هذه اللعبة.'
     },
 
@@ -1885,7 +2365,7 @@ function renderNight(){
       icon:'⚖️',
       desc:
         mayors.length
-          ? 'دور العمدة متخطى أثناء الليل. يظهر العمدة في اللعبة ويظل صوته يساوي 3 أصوات في التصويت.'
+          ? 'دور العمدة متخطى أثناء الليل. العمدة لا يقوم بأي إجراء في الليل.'
           : 'لا يوجد عمدة الصالحين في هذه اللعبة.'
     },
 
@@ -1930,7 +2410,6 @@ function renderNight(){
     قبل كل دور فعلي:
     أظهر "ابدأ دورك"
   */
-
 
   if(
     ['mafia','doctor','detective']
@@ -2070,7 +2549,7 @@ function renderNight(){
 
   /*
     العمدة:
-    موجود لكن دوره متخطى
+    المرحلة الرابعة موجودة، لكن لا يوجد إجراء ليلي.
   */
 
   else if(st.key==='mayor'){
@@ -2092,8 +2571,8 @@ function renderNight(){
         </div>
 
         <div class="small">
-          العمدة مواطن مؤكد،
-          وصوته يساوي 3 أصوات في التصويت.
+          العمدة لا يقوم بأي إجراء أثناء الليل.
+          قوته تظهر فقط في التصويت بعد كشفه.
         </div>
 
       </div>
@@ -2157,39 +2636,39 @@ function renderNight(){
 
     else if(target && saved){
 
-  html=`
+      html=`
 
-    <div class="result ok">
+        <div class="result ok">
 
-      🛡️
+          🛡️
 
-      <div 
-        style="
-          font-size:27px;
-          font-weight:900;
-          margin:8px
-        "
-      >
-        محاولة قتل فاشلة
-      </div>
+          <div
+            style="
+              font-size:27px;
+              font-weight:900;
+              margin:8px
+            "
+          >
+            محاولة قتل فاشلة
+          </div>
 
-      <div style="font-size:17px">
-        🩺 تم إنقاذ اللاعب بواسطة الدكتور.
-      </div>
+          <div style="font-size:17px">
+            🩺 تم إنقاذ اللاعب بواسطة الدكتور.
+          </div>
 
-    </div>
+        </div>
 
-    <button 
-      class="btn" 
-      style="margin-top:12px" 
-      onclick="finishNight()" 
-    >
-      ☀️ الانتقال لليوم
-    </button>
+        <button
+          class="btn"
+          style="margin-top:12px"
+          onclick="finishNight()"
+        >
+          ☀️ الانتقال لليوم
+        </button>
 
-  `;
+      `;
 
-}
+    }
 
     else{
 
@@ -2312,9 +2791,10 @@ function investigateTarget(name){
 
       <b>${escapeHtml(name)}</b>
 
-      ${mafia
-        ? 'هو مافيا.'
-        : 'ليس مافيا.'
+      ${
+        mafia
+          ? 'هو مافيا.'
+          : 'ليس مافيا.'
       }
 
     </div>
@@ -2367,10 +2847,6 @@ function resolveNightKill(){
   }
 
 
-  /*
-    فحص الفوز بعد الليلة مباشرة
-  */
-
   if(checkMafiaWin())return;
 
 
@@ -2387,10 +2863,6 @@ function finishNight(){
     return;
   }
 
-
-  /*
-    فحص إضافي بعد نهاية الليل
-  */
 
   if(checkMafiaWin())return;
 
@@ -2454,55 +2926,82 @@ function startEliminationRound(){
 
   renderVoting();
 
-
   show('eliminate');
+}
+
+
+/*
+  تحديث التصويت إذا تم كشف العمدة
+  أثناء وجود شاشة التصويت.
+*/
+
+function renderVotingIfActive(){
+
+  const eliminateScreen=qs('eliminate');
+
+  if(
+    eliminateScreen &&
+    eliminateScreen.classList.contains('active')
+  ){
+
+    renderVoting();
+  }
 }
 
 
 function renderVoting(){
 
-  const alive=
+  const alive =
     aliveAssignments();
 
-
-  /*
-    حساب الأصوات لكل لاعب
-  */
-
-  const countsVotes={};
-
+  const countsVotes = {};
 
   alive.forEach(
-    p=>{
-      countsVotes[p.name]=0;
+    p => {
+      countsVotes[p.name] = 0;
     }
   );
 
+  let skips = 0;
 
-  let skips=0;
+  Object.entries(voteState.votes)
+    .forEach(
+      ([voter, vote]) => {
 
+        if(vote === '__skip__'){
 
-  Object.values(voteState.votes)
-  .forEach(
-    vote=>{
+          skips++;
 
-      if(vote==='__skip__'){
+        }
 
-        skips++;
+        else if(vote){
+
+          const voterPlayer =
+            assignments.find(
+              x => x.name === voter
+            );
+
+          /*
+            وزن التصويت:
+
+            مواطن = 1
+            عمدة غير مكشوف = 1
+            عمدة مكشوف = 3
+          */
+
+          const voterWeight =
+            voterPlayer &&
+            isRevealedMayor(voterPlayer)
+              ? 3
+              : 1;
+
+          countsVotes[vote] += voterWeight;
+        }
 
       }
+    );
 
-      else if(vote){
-
-        countsVotes[vote]++;
-      }
-
-    }
-  );
-
-
-  voteState.skipVotes=skips;
-
+  voteState.skipVotes = skips;
 
   qs('skipVotesCount').textContent =
     skips;
@@ -2510,34 +3009,74 @@ function renderVoting(){
 
   qs('voterList').innerHTML =
     alive.map(
-      p=>{
+      p => {
 
-        const vote=
+        const vote =
           voteState.votes[p.name];
 
+        let right = 'لم يصوّت';
 
-        let right='لم يصوّت';
 
-        if(vote==='__skip__'){
+        if(vote === '__skip__'){
 
-          right=
+          right =
             '<span class="voted-badge">⏭️ تخطي</span>';
 
         }
 
         else if(vote){
 
-  const voterWeight =
-    p.role === 'mayor'
-      ? 3
-      : 1;
+          const voterWeight =
+            isRevealedMayor(p)
+              ? 3
+              : 1;
 
-  right=
-    `<span class="voted-badge"> 
-      ${escapeHtml(vote)}
-      ${voterWeight === 3 ? ' — ⚖️ 3 أصوات' : ' — صوت واحد'}
-    </span>`;
-}
+
+          if(voterWeight === 3){
+
+            right = `
+              <span class="voted-badge mayor-vote-label">
+                ${escapeHtml(vote)}
+                — ⚖️ ${escapeHtml(p.name)} عمدة
+                — 3 أصوات
+              </span>
+            `;
+
+          }
+
+          else{
+
+            right = `
+              <span class="voted-badge">
+                ${escapeHtml(vote)}
+                — صوت واحد
+              </span>
+            `;
+          }
+        }
+
+
+        /*
+          إذا كان العمدة قد كُشف:
+          يظهر تحت اسمه أنه عمدة.
+        */
+
+        const mayorLabel =
+          isRevealedMayor(p)
+            ? `
+              <span
+                class="small"
+                style="
+                  display:block;
+                  margin-top:4px;
+                  color:#fde68a;
+                  font-weight:800
+                "
+              >
+                ⚖️ ${escapeHtml(p.name)} عمدة — صوته 3
+              </span>
+            `
+            : '';
 
 
         return `
@@ -2550,14 +3089,23 @@ function renderVoting(){
             >
 
               <span>
-                <b>${escapeHtml(p.name)}</b>
+
+                <b>
+                  ${escapeHtml(p.name)}
+                </b>
+
+                ${mayorLabel}
 
                 <span
                   class="small"
-                  style="display:block;margin-top:3px"
+                  style="
+                    display:block;
+                    margin-top:3px
+                  "
                 >
                   ${right}
                 </span>
+
               </span>
 
               <span class="vote-count">
@@ -2589,13 +3137,48 @@ function openVoteChoices(voterName){
   qs('voteChoice').classList.remove('hidden');
 
 
+  const voter=
+    assignments.find(
+      x=>x.name===voterName
+    );
+
+
+  const isMayor=
+    voter &&
+    isRevealedMayor(voter);
+
+
   qs('voteChoice').innerHTML=`
 
     <h3>
+
       🗳️
+
       ${escapeHtml(voterName)}
-      — اختر تصويتك
+
+      ${
+        isMayor
+          ? '— ⚖️ عمدة — 3 أصوات'
+          : '— اختر تصويتك'
+      }
+
     </h3>
+
+    ${
+      isMayor
+        ? `
+          <div
+            class="small"
+            style="
+              margin-bottom:12px;
+              color:#fde68a
+            "
+          >
+            تم كشف العمدة، لذلك هذا التصويت سيُحسب بـ 3 أصوات.
+          </div>
+        `
+        : ''
+    }
 
     <div class="vote-choice-grid">
 
@@ -2691,26 +3274,42 @@ function executeVote(){
 
 
   Object.entries(voteState.votes)
-.forEach(
-  ([voter, vote])=>{
-    if(vote==='__skip__'){
-      skipVotes++;
+  .forEach(
+    ([voter,vote])=>{
+
+      if(vote==='__skip__'){
+
+        skipVotes++;
+
+      }
+
+      else if(vote){
+
+        const voterPlayer =
+          assignments.find(
+            x=>x.name===voter
+          );
+
+
+        /*
+          هنا التصحيح الأساسي:
+
+          العمدة قبل الكشف = 1
+          العمدة بعد الكشف = 3
+        */
+
+        const weight =
+          voterPlayer &&
+          isRevealedMayor(voterPlayer)
+            ? 3
+            : 1;
+
+
+        voteCounts[vote] += weight;
+      }
+
     }
-    else if(vote){
-
-      const voterPlayer = assignments.find(
-        x => x.name === voter
-      );
-
-      const weight =
-        voterPlayer && voterPlayer.role === 'mayor'
-          ? 3
-          : 1;
-
-      voteCounts[vote] += weight;
-    }
-  }
-);
+  );
 
 
   qs('skipVotesCount').textContent=
@@ -2741,27 +3340,42 @@ function executeVote(){
 
 
   /*
-    حالة التعادل بين اللاعبين
+    حالة التعادل
   */
 
   if(topPlayers.length>1){
 
     showVoteResult(`
+
       ⚖️
-      <div style="font-size:27px;font-weight:900;margin:8px">
+
+      <div
+        style="
+          font-size:27px;
+          font-weight:900;
+          margin:8px
+        "
+      >
         تعادل
       </div>
 
       <div style="font-size:17px">
+
         تعادل في أعلى عدد من الأصوات.
+
         <br>
+
         لا يتم إقصاء أحد.
+
       </div>
+
     `,'ok');
+
 
     voteState.finished=true;
 
-    qs('continueAfterVoteBtn').style.display='inline-block';
+    qs('continueAfterVoteBtn').style.display=
+      'inline-block';
 
     return;
   }
@@ -2774,21 +3388,36 @@ function executeVote(){
   if(skipVotes>maxPlayerVotes){
 
     showVoteResult(`
+
       ⏭️
-      <div style="font-size:27px;font-weight:900;margin:8px">
+
+      <div
+        style="
+          font-size:27px;
+          font-weight:900;
+          margin:8px
+        "
+      >
         تخطي
       </div>
 
       <div style="font-size:17px">
+
         حصل التخطي على أعلى عدد من الأصوات.
+
         <br>
+
         لا يتم إقصاء أحد.
+
       </div>
+
     `,'ok');
+
 
     voteState.finished=true;
 
-    qs('continueAfterVoteBtn').style.display='inline-block';
+    qs('continueAfterVoteBtn').style.display=
+      'inline-block';
 
     return;
   }
@@ -2801,21 +3430,36 @@ function executeVote(){
   if(maxPlayerVotes===0){
 
     showVoteResult(`
+
       ⏭️
-      <div style="font-size:27px;font-weight:900;margin:8px">
+
+      <div
+        style="
+          font-size:27px;
+          font-weight:900;
+          margin:8px
+        "
+      >
         تخطي
       </div>
 
       <div style="font-size:17px">
+
         لا توجد أصوات لإقصاء لاعب.
+
         <br>
+
         لا يتم إقصاء أحد.
+
       </div>
+
     `,'ok');
+
 
     voteState.finished=true;
 
-    qs('continueAfterVoteBtn').style.display='inline-block';
+    qs('continueAfterVoteBtn').style.display=
+      'inline-block';
 
     return;
   }
@@ -2846,11 +3490,13 @@ function executeVote(){
 
 
   /*
-    إخفاء اللاعب من التصويت التالي
+    مهم:
+    لا نكشف الدور إذا لم يكن مافيا.
   */
 
   const isMafia=
-    p && p.role==='mafia';
+    p &&
+    p.role==='mafia';
 
 
   showVoteResult(
@@ -2874,7 +3520,9 @@ function executeVote(){
         </div>
 
         <div style="font-size:18px">
+
           كان <b>مافيا</b>!
+
         </div>
 
       `
@@ -2896,8 +3544,11 @@ function executeVote(){
         </div>
 
         <div style="font-size:18px">
+
           <b>${escapeHtml(eliminatedName)}</b>
+
           ليس مافيا.
+
         </div>
 
       `,
@@ -2949,17 +3600,11 @@ function showVoteResult(html,type){
 
     result.style.borderColor=
       'rgba(239,68,68,.3)';
-
   }
 }
 
 
 function continueAfterVote(){
-
-  /*
-    بعد التصويت:
-    إذا لم تنته اللعبة، العودة للراوي
-  */
 
   if(checkMafiaWin())return;
 
