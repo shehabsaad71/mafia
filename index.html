@@ -1377,7 +1377,9 @@ const roleDefs = {
 };
 
 
-let players=[];
+let players = JSON.parse(
+  localStorage.getItem('mafiaPlayers') || '[]'
+);
 
 let counts={
   mafia:1,
@@ -1474,8 +1476,6 @@ function goHome(){
 
 function newGame(){
 
-  players=[];
-
   counts={
     mafia:1,
     doctor:0,
@@ -1538,6 +1538,8 @@ function addPlayer(){
 
   players.push(name);
 
+  savePlayers();
+
   input.value='';
 
   renderPlayers();
@@ -1557,6 +1559,8 @@ qs('playerInput').addEventListener(
 function removePlayer(i){
 
   players.splice(i,1);
+
+  savePlayers();
 
   renderPlayers();
 }
@@ -3682,8 +3686,15 @@ function escapeAttr(s){
   return escapeHtml(s);
 }
 
+function savePlayers(){
+  localStorage.setItem(
+    'mafiaPlayers',
+    JSON.stringify(players)
+  );
+}
 
 renderRoles();
+renderPlayers();
 
 </script>
 
