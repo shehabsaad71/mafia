@@ -772,8 +772,8 @@ input:focus{
       ></div>
 
       <div class="note">
-        لا يوجد حد أدنى للاعبين هنا، لكن اللعبة لن تبدأ إلا إذا كان
-        عدد اللاعبين كافيًا لجميع الأدوار المختارة.
+       يجب إضافة 3 لاعبين على الأقل لبدء اللعبة.
+       كما يجب أن يكون عدد اللاعبين كافيًا لجميع الأدوار المختارة.
       </div>
 
     </div>
@@ -1679,18 +1679,17 @@ function startGame(){
     Object.values(counts)
       .reduce((a,b)=>a+b,0);
 
+
+  if(players.length < 3){
+    alert(`يجب أن يكون هناك 3 لاعبين على الأقل لبدء اللعبة. لديك ${players.length} فقط.`);
+    return;
+  }
+      
   if(players.length < total){
 
     alert(
       `تحتاج إلى ${total} لاعبًا على الأقل، ولديك ${players.length}.`
     );
-
-    return;
-  }
-
-  if(players.length === 0){
-
-    alert('أضف لاعبين أولًا.');
 
     return;
   }
