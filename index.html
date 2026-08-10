@@ -1677,9 +1677,9 @@ function startGame(){
 
   const total =
     Object.values(counts)
-    .reduce((a,b)=>a+b,0);
+      .reduce((a,b)=>a+b,0);
 
-  if(players.length<total){
+  if(players.length < total){
 
     alert(
       `تحتاج إلى ${total} لاعبًا على الأقل، ولديك ${players.length}.`
@@ -1688,7 +1688,7 @@ function startGame(){
     return;
   }
 
-  if(players.length===0){
+  if(players.length === 0){
 
     alert('أضف لاعبين أولًا.');
 
@@ -1696,14 +1696,18 @@ function startGame(){
   }
 
 
-  const roles=[];
+  /*
+    إنشاء قائمة الأدوار من جديد
+    في كل لعبة.
+  */
 
+  const roles = [];
 
   Object.entries(counts).forEach(
-    ([k,n])=>{
+    ([role,count]) => {
 
-      for(let i=0;i<n;i++){
-        roles.push(k);
+      for(let i = 0; i < count; i++){
+        roles.push(role);
       }
 
     }
@@ -1711,46 +1715,65 @@ function startGame(){
 
 
   /*
-    اللاعبون الزائدون يصبحون مواطنين
+    اللاعبين الزائدون = مواطنون
   */
 
-  while(roles.length<players.length){
+  while(roles.length < players.length){
     roles.push('citizen');
   }
 
 
   /*
-    التوزيع العشوائي يتم مرة واحدة فقط
-    قبل أول لاعب.
+    خلط الأدوار عشوائيًا
+    في كل مرة يتم فيها بدء اللعبة.
   */
 
   shuffle(roles);
 
 
-  assignments =
-    players.map(
-      (name,i)=>({
-        name,
-        role:roles[i]
-      })
-    );
-
-
   /*
-    العمدة لم يتم كشفه بعد.
+    إنشاء assignments جديد تمامًا.
   */
 
-  mayorRevealed=false;
-
-  turn=0;
-
-  revealed=false;
-
-  eliminated=[];
+  assignments = players.map(
+    (name,index) => ({
+      name: name,
+      role: roles[index]
+    })
+  );
 
 
   /*
-    تجهيز شاشة اللاعب الأول
+    إعادة ضبط حالة اللعبة.
+  */
+
+  mayorRevealed = false;
+
+  turn = 0;
+
+  revealed = false;
+
+  eliminated = [];
+
+  nightState = {
+    step: 0,
+    started: false,
+    mafiaTarget: null,
+    doctorTarget: null,
+    detectiveResult: null
+  };
+
+  voteState = {
+    voters: [],
+    votes: {},
+    skipVotes: 0,
+    activeVoter: null,
+    finished: false
+  };
+
+
+  /*
+    بدء كشف الأدوار.
   */
 
   prepareTurn();
