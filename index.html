@@ -1080,6 +1080,23 @@ footer strong {
   color: #7c5cff;
 }
 
+.platform.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+  filter: grayscale(0.4);
+}
+
+.platform.disabled:hover {
+  transform: none;
+  background: rgba(255,255,255,.035);
+  border-color: var(--border);
+}
+
+.platform-info small.coming-soon {
+  color: var(--warning);
+}
+  
 </style>
 </head>
 
@@ -1513,27 +1530,21 @@ footer strong {
 
       <!-- ANDROID -->
 
-      <a
-        class="platform"
-        href="downloads/game.apk"
-        download="LAMMA.apk"
-      >
+      <div class="platform disabled" aria-disabled="true">
+  <div class="platform-icon">
+    
+  </div>
 
-        <div class="platform-icon">
-          🤖
-        </div>
+  <div class="platform-info">
+    <strong>
+      iPhone / iPad
+    </strong>
 
-        <div class="platform-info">
-
-          <strong>
-            Android
-          </strong>
-
-          <small>
-            تحميل ملف APK
-          </small>
-
-        </div>
+    <small class="coming-soon">
+      قريبًا
+    </small>
+  </div>
+</div>
 
       </a>
 
